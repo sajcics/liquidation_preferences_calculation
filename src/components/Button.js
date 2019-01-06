@@ -8,17 +8,20 @@ export class Button extends React.PureComponent {
 		onClick: PropTypes.func.isRequired,
 		padding: PropTypes.number,
 		mt: PropTypes.number,
-		mb: PropTypes.number
+		mb: PropTypes.number,
+		mr: PropTypes.number,
+		ml: PropTypes.number
 	};
 
 	static defaultProps = {
 		padding: 0,
 		mt: 0,
-		mb: 0
+		mb: 0,
+		display: 'block'
 	};
 
 	render() {
-		const {onClick, mb, mt, padding} = this.props;
+		const {onClick, mb, mt, padding, mr, ml} = this.props;
 
 		return (
 			<StyledButton
@@ -26,6 +29,8 @@ export class Button extends React.PureComponent {
 				mt={mt}
 				mb={mb}
 				padding={padding}
+				mr={mr}
+				ml={ml}
 			>{this.props.children}</StyledButton>
 		)
 	}
@@ -33,8 +38,9 @@ export class Button extends React.PureComponent {
 
 const StyledButton = styled.button`
 	background: white;
-	padding: 5px;
-	${(props) => props.padding ? `padding: ${props.padding}px;` : null}
-	${(props) => props.mt ? `margin-top: ${props.mt}px;` : null}
-	${(props) => props.mb ? `margin-bottom: ${props.mb}px;` : null}
+	padding: ${(props) => props.padding}px;
+	margin-top: ${(props) => props.mt}px;
+	margin-bottom: ${(props) => props.mb}px;
+	margin-left: ${(props) => props.ml}px;
+	margin-right: ${(props) => props.mr}px;
 `;

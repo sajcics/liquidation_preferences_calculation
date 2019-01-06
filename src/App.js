@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import {LiquidationCalculation} from './containers/LiquidationCalculation';
+import {BeautyHeader} from './components/BeautyHeader';
 
 class App extends Component {
 
 	render() {
 		return (
-			<LiquidationCalculation />
+			<Fragment>
+				<BeautyHeader />
+				<LiquidationCalculation />
+			</Fragment>
 		);
 	}
 

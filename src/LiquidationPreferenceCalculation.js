@@ -97,7 +97,6 @@ export class LiquidationPreferenceCalculation {
 				if (!record.paidUp) {
 					const newOwnership = (percentageUnit * record.ownership) + record.ownership;
 					record.ownership = newOwnership;
-					console.log("new ownership ", record.name, newOwnership)
 				}
 			}
 		}

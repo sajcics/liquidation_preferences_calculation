@@ -60,6 +60,12 @@ export class Table extends React.PureComponent {
 }
 
 const StyledTable = styled.table`
-	border: 1px solid black;
-	background: silver;
+	padding: 5px;
+	background: #f5f5f5;
+	width: 100%;
+	box-shadow: 0 0 2px #282c34;
+	
+	th {
+		font-size: 13px;
+	}
 `;

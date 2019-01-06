@@ -1,5 +1,6 @@
 import React  from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 export class InputText extends React.PureComponent {
 	static propTypes = {
@@ -27,7 +28,19 @@ export class InputText extends React.PureComponent {
 		const {value} = this.state;
 
 		return (
-			<input type='text' value={value} onChange={this.onChange}/>
+			<StyledInput type='text' value={value} onChange={this.onChange}/>
 		);
 	}
 }
+
+const StyledInput = styled.input`
+	border: none;
+	padding: 5px;
+	font-size: 16px;
+	
+	:focus {
+		border: 1px solid #C14343;
+		box-shadow: 0 0 5px #C14343;
+		outline: none;
+	}
+`;
