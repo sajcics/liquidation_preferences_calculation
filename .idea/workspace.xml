@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40067838-0013-4c36-9ad7-7cc0cdf926ee" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/fonts/Arimo-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Pacifico.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BeautyHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BeautyHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InputNumber.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputNumber.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Text.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Text.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/LiquidationCalculation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LiquidationCalculation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,17 +22,21 @@
       <file leaf-file-name="LiquidationCalculation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/LiquidationCalculation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+            <state relative-caret-position="316">
+              <caret line="132" column="43" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <element signature="n#Rules#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InputText.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/InputText.js">
+      <file leaf-file-name="LiquidationPreferenceCalculation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state relative-caret-position="366">
+              <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -52,7 +52,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LiquidationCalculation</find>
       <find>InputText</find>
       <find>disabled</find>
       <find>onblur</find>
@@ -80,6 +79,8 @@
       <find>company</find>
       <find>module</find>
       <find>moneylef</find>
+      <find>requi</find>
+      <find>required</find>
       <find>console.log</find>
     </findStrings>
     <replaceStrings>
@@ -110,11 +111,11 @@
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/BeautyHeader.js" />
         <option value="$PROJECT_DIR$/src/components/Button.js" />
-        <option value="$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js" />
-        <option value="$PROJECT_DIR$/src/components/Text.js" />
-        <option value="$PROJECT_DIR$/src/components/InputNumber.js" />
-        <option value="$PROJECT_DIR$/src/containers/LiquidationCalculation.js" />
         <option value="$PROJECT_DIR$/src/components/InputText.js" />
+        <option value="$PROJECT_DIR$/src/components/InputNumber.js" />
+        <option value="$PROJECT_DIR$/src/components/Text.js" />
+        <option value="$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js" />
+        <option value="$PROJECT_DIR$/src/containers/LiquidationCalculation.js" />
       </list>
     </option>
   </component>
@@ -141,7 +142,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="609" />
+    <option name="x" value="536" />
     <option name="y" value="24" />
     <option name="width" value="1227" />
     <option name="height" value="1056" />
@@ -174,6 +175,12 @@
               <item name="liquidation_preference" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liquidation_preference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liquidation_preference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="liquidation_preference" type="b2602c69:ProjectViewProjectNode" />
@@ -241,15 +248,15 @@
       <workItem from="1546805260514" duration="13459000" />
       <workItem from="1546864283858" duration="4000" />
       <workItem from="1546876081498" duration="998000" />
-      <workItem from="1546877750125" duration="3117000" />
+      <workItem from="1546877750125" duration="5399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35458000" />
+    <option name="totallyTimeSpent" value="37740000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="609" y="24" width="1227" height="1056" extended-state="4" />
+    <frame x="536" y="24" width="1227" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -259,7 +266,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22544834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2467976" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
@@ -290,6 +297,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="n#Rules#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -304,6 +315,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="n#Rules#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -457,48 +472,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js">
+    <entry file="file://$PROJECT_DIR$/src/components/InputText.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="77" column="103" selection-start-line="77" selection-start-column="103" selection-end-line="77" selection-end-column="103" />
+        <state relative-caret-position="425">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Button.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="340">
+          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InputNumber.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Text.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="46" column="3" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
+        <state relative-caret-position="164">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InputNumber.js">
+    <entry file="file://$PROJECT_DIR$/src/LiquidationPreferenceCalculation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InputText.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        <state relative-caret-position="366">
+          <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/LiquidationCalculation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+        <state relative-caret-position="316">
+          <caret line="132" column="43" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="n#Rules#0" />
+          </folding>
         </state>
       </provider>
     </entry>

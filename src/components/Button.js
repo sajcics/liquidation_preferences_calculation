@@ -10,18 +10,20 @@ export class Button extends React.PureComponent {
 		mt: PropTypes.number,
 		mb: PropTypes.number,
 		mr: PropTypes.number,
-		ml: PropTypes.number
+		ml: PropTypes.number,
+		submitting: PropTypes.bool
 	};
 
 	static defaultProps = {
 		padding: 0,
 		mt: 0,
 		mb: 0,
-		display: 'block'
+		display: 'block',
+		submitting: false
 	};
 
 	render() {
-		const {onClick, mb, mt, padding, mr, ml} = this.props;
+		const {onClick, mb, mt, padding, mr, ml, submitting} = this.props;
 
 		return (
 			<StyledButton
@@ -31,6 +33,7 @@ export class Button extends React.PureComponent {
 				padding={padding}
 				mr={mr}
 				ml={ml}
+				type={submitting ? 'submit' : null}
 			>{this.props.children}</StyledButton>
 		)
 	}

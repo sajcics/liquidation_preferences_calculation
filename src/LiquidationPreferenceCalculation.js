@@ -41,7 +41,6 @@ export class LiquidationPreferenceCalculation {
 			const pp = record.pp;
 			const payment = invested * pp; //how much money investor should get back
 
-
 			if (this.moneyLeft - payment >= 0) {
 				this.moneyLeft -= payment;
 			} else {

@@ -12,7 +12,8 @@ export class Text extends React.PureComponent {
 		mb: PropTypes.number,
 		fontWeight: PropTypes.oneOf([300, 800, 1000]),
 		display: PropTypes.oneOf(['block', 'inline-block']),
-		fontSize: PropTypes.number
+		fontSize: PropTypes.number,
+		color: PropTypes.oneOf(["red", "black"])
 	};
 
 	static defaultProps = {
@@ -23,12 +24,13 @@ export class Text extends React.PureComponent {
 		mt: 0,
 		mb: 0,
 		display: 'inline-block',
-		fontSize: 25
+		fontSize: 25,
+		color: 'black'
 	};
 
 
 	render() {
-		const {pt, pb, pr, pl, fontWeight, display, mt, mb, fontSize} = this.props;
+		const {pt, pb, pr, pl, fontWeight, display, mt, mb, fontSize, color} = this.props;
 
 		return (
 			<StyledText
@@ -40,7 +42,8 @@ export class Text extends React.PureComponent {
 				display={display}
 				mt={mt}
 				mb={mb}
-				fontSize={fontSize}>
+				fontSize={fontSize}
+				color={color}>
 					{this.props.children}
 			</StyledText>
 		);
@@ -60,4 +63,5 @@ const StyledText = styled.span`
 	display: ${props => props.display};
 	font-family: Arimo;
 	line-height: 1.5;
+	${(props) => props.color ? `color: ${props.color}` : null}
 `

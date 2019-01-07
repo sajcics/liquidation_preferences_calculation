@@ -5,13 +5,11 @@ import styled from 'styled-components';
 export class InputText extends React.PureComponent {
 	static propTypes = {
 		value: PropTypes.string,
-		onChange: PropTypes.func.isRequired,
-		required: PropTypes.bool
+		onChange: PropTypes.func.isRequired
 	};
 
 	static defaultProps = {
-		value: 0,
-		required: false
+		value: 0
 	};
 
 	state = {
@@ -27,17 +25,11 @@ export class InputText extends React.PureComponent {
 	};
 
 	render() {
-		const {value, required} = this.state;
+		const {value} = this.state;
 
 		return (
-			<StyledInput type='text' value={value} required={required} onChange={this.onChange}/>
+			<StyledInput type='text' value={value} onChange={this.onChange}/>
 		);
-	}
-
-	/* tip: when deleting record from data (shareholders) then input was not changed. To
-	 * ensure that input always has valid data, return next props to update component */
-	static getDerivedStateFromProps (nextProps, prevState) {
-		return nextProps;
 	}
 }
 

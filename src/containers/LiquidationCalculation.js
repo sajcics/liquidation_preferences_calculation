@@ -5,26 +5,23 @@ import {Table, Button, InputNumber, InputText, Checkbox, Text} from '../componen
 import {defaultValues} from '../configs/defaultValues';
 import {LiquidationPreferenceCalculation} from '../LiquidationPreferenceCalculation'
 
-/*
- * tips:
- * - validation
- */
-
 export class LiquidationCalculation extends React.PureComponent {
 	state = {
 		data: defaultValues,
 		companySold: 35000000,
-		calculated: []
+		calculated: [],
+		errorMessages: []
 	};
 
-	/* function to add new stackholder */
+	/* function to add new shareholder */
 	onClickAddRow = () => {
 		const {data} = this.state;
 		const newRecord = {
 			name: '',
 			shares: 0,
 			invested: 0,
-			ownership: 0
+			ownership: 0,
+			pp: 1
 		};
 
 		data.push(newRecord);
@@ -33,6 +30,7 @@ export class LiquidationCalculation extends React.PureComponent {
 		this.setState({data: _data});
 	};
 
+	/* when input data of shareholders updates then update state*/
 	onChangeData = (property, index) => (value) => {
 		const {data} = this.state;
 		const record = data[index];
@@ -44,37 +42,31 @@ export class LiquidationCalculation extends React.PureComponent {
 		});
 	};
 
+	/* when value is changed for how many company is sold, then change the state */
 	onChangeDataCompany = (value) => {
 		this.setState({
 			companySold: value
 		});
 	};
 
-	onClickCalculate = (e) => {
+	/* calculate liquidation preference */
+	onClickCalculate = () => {
 		const {data, companySold} = this.state;
 		const instance = new LiquidationPreferenceCalculation(data, companySold);
 
-		const calculated = instance.calculate();
-		this.setState({
-			calculated
-		});
+		if (this.validateData()) {
+			const calculated = instance.calculate();
+			this.setState({
+				calculated
+			});
+		}
 	};
 
-	onClickDeleteShareholder = (index) => (e) => {
-		const {data} = this.state;
-
-		data.splice(index, 1);
-		const _data = JSON.parse(JSON.stringify(data));
-
-		this.setState({
-			data: _data
-		});
-	};
-
+	/* render every row of table per shareholder */
 	renderRow(element, index) {
 		return (
 			<Table.Tr key={`element.name[${index}]`}>
-				<Table.Td><InputText onChange={this.onChangeData('name', index)} value={element.name} required/></Table.Td>
+				<Table.Td><InputText onChange={this.onChangeData('name', index)} value={element.name || `Share ${index}`}/></Table.Td>
 				<Table.Td><Checkbox onChange={this.onChangeData('isFounders', index)} value={element.isFounders}/></Table.Td>
 				<Table.Td><InputNumber onChange={this.onChangeData('shares', index)} value={element.shares}/></Table.Td>
 				<Table.Td><InputNumber onChange={this.onChangeData('invested', index)} value={element.invested}/></Table.Td>
@@ -82,13 +74,12 @@ export class LiquidationCalculation extends React.PureComponent {
 				<Table.Td><InputNumber onChange={this.onChangeData('cap', index)} value={element.cap} disabled={element.isFounders} max={3}/></Table.Td>
 				<Table.Td><InputNumber onChange={this.onChangeData('pp', index)} value={element.pp} disabled={element.isFounders} max={10}/></Table.Td>
 				<Table.Td><InputNumber onChange={this.onChangeData('priority', index)} value={element.priority} disabled={element.isFounders} max={9999}/></Table.Td>
-				<Table.Td><Button onClick={this.onClickDeleteShareholder(index)}>Delete</Button></Table.Td>
 			</Table.Tr>
 		);
 	}
 
 	render() {
-		const {data, companySold, calculated} = this.state;
+		const {data, companySold, calculated, errorMessages} = this.state;
 
 		return (
 			<StyledContainer>
@@ -97,28 +88,31 @@ export class LiquidationCalculation extends React.PureComponent {
 				<Text mt={30} mb={20} pb={10} pr={5}>Company is sold for $</Text>
 				<InputNumber onChange={this.onChangeDataCompany} value={companySold}/>
 
-				<Table>
-					<Table.Head>
-						<Table.Tr>
-							<Table.Th>Share's class/name *</Table.Th>
-							<Table.Th>Founders?</Table.Th>
-							<Table.Th>Numbers of shares</Table.Th>
-							<Table.Th>Invested in $ *</Table.Th>
-							<Table.Th>Ownership in % *</Table.Th>
-							<Table.Th>CAP</Table.Th>
-							<Table.Th>P.P.</Table.Th>
-							<Table.Th>Priority</Table.Th>
-							<Table.Th></Table.Th>
-						</Table.Tr>
-					</Table.Head>
-					<Table.Body>
-						{data.map((element, index) => this.renderRow(element, index))}
-					</Table.Body>
-				</Table>
+					<Table>
+						<Table.Head>
+							<Table.Tr>
+								<Table.Th>Share's class/name *</Table.Th>
+								<Table.Th>Founders?</Table.Th>
+								<Table.Th>Numbers of shares</Table.Th>
+								<Table.Th>Invested in $ *</Table.Th>
+								<Table.Th>Ownership in % *</Table.Th>
+								<Table.Th>CAP</Table.Th>
+								<Table.Th>P.P.</Table.Th>
+								<Table.Th>Priority</Table.Th>
+							</Table.Tr>
+						</Table.Head>
+						<Table.Body>
+							{data.map((element, index) => this.renderRow(element, index))}
+						</Table.Body>
+					</Table>
+
 
 				<Button onClick={this.onClickAddRow} padding={10} mt={20} mb={20} mr={10}>Add new stakeholder</Button>
 				<Button onClick={this.onClickCalculate} padding={10} mt={20} mb={20}>Calculate</Button>
 
+				{errorMessages.length > 0 && errorMessages.map((record, index) =>
+					<Text display="block" color="red" key={index}>{record}</Text>
+				)}
 
 				<Text display="block" fontWeight={1000} mt={30}>Results: </Text>
 				{calculated.length > 0 && calculated.map((record, index) =>
@@ -135,8 +129,58 @@ export class LiquidationCalculation extends React.PureComponent {
 			</StyledContainer>
 		);
 	}
+
+	/* validate data before any calculations */
+	validateData() {
+		const {data} = this.state;
+		const errorMessages = [];
+		let sumPercentage = 0;
+
+		for (const record of data) {
+			if (!record.name) {
+				errorMessages.push(`Some record don't have defined name`);
+			} else {
+				if (!record.ownership) {
+					errorMessages.push(`${record.name} don't have defined ownership`);
+				} else if (record.ownership > 100) {
+					errorMessages.push(`${record.name} can't have ownership more than 100%`);
+				} else if (record.ownership < 0) {
+					errorMessages.push(`${record.name} can't have ownership less than 0%`);
+				} else {
+					sumPercentage += record.ownership;
+				}
+
+				if (!record.pp && !record.isFounders) {
+					errorMessages.push(`${record.name} don't have defined P.P. - participate preference`);
+				}
+
+				if (!record.cap && !record.isFounders) {
+					errorMessages.push(`${record.name} don't have defined CAP`);
+				}
+
+				if (record.invested === null) {
+					errorMessages.push(`${record.name} don't have defined how much he/she invested`);
+				}
+			}
+		}
+
+		if (sumPercentage > 100) {
+			errorMessages.push(`Sum of ownership for all shareholders should not be more than 100%`);
+		}
+
+		if (errorMessages.length > 0) {
+			this.setState({
+				errorMessages
+			});
+
+			return false;
+		}
+
+		return true;
+	}
 }
 
+/* description of project */
 export class Rules extends React.Component {
 	render() {
 		return (

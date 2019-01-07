@@ -36,14 +36,8 @@ export class InputNumber extends React.PureComponent {
 		const {disabled, max} = this.props;
 
 		return (
-			<StyledInput type='number' value={value} onChange={this.onChange} min={0} disabled={disabled} max={max}/>
+			<StyledInput type='number' value={value} onChange={this.onChange} min={0} disabled={disabled} max={max} step="any"/>
 		);
-	}
-
-	/* tip: when deleting record from data (shareholders) then input was not changed. To
- * ensure that input always has valid data, return next props to update component */
-	static getDerivedStateFromProps (nextProps, prevState) {
-		return nextProps;
 	}
 }
 
