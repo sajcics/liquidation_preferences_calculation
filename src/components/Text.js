@@ -11,7 +11,8 @@ export class Text extends React.PureComponent {
 		mt: PropTypes.number,
 		mb: PropTypes.number,
 		fontWeight: PropTypes.oneOf([300, 800, 1000]),
-		display: PropTypes.oneOf(['block', 'inline-block'])
+		display: PropTypes.oneOf(['block', 'inline-block']),
+		fontSize: PropTypes.number
 	};
 
 	static defaultProps = {
@@ -21,23 +22,34 @@ export class Text extends React.PureComponent {
 		pr: 0,
 		mt: 0,
 		mb: 0,
-		display: 'inline-block'
+		display: 'inline-block',
+		fontSize: 25
 	};
 
 
 	render() {
-		const {pt, pb, pr, pl, fontWeight, display, mt, mb} = this.props;
+		const {pt, pb, pr, pl, fontWeight, display, mt, mb, fontSize} = this.props;
 
 		return (
-			<StyledText pt={pt} pb={pb} pl={pl} pr={pr} fontWeight={fontWeight} display={display} mt={mt} mb={mb}>
-				{this.props.children}
+			<StyledText
+				pt={pt}
+				pb={pb}
+				pl={pl}
+				pr={pr}
+				fontWeight={fontWeight}
+				display={display}
+				mt={mt}
+				mb={mb}
+				fontSize={fontSize}>
+					{this.props.children}
 			</StyledText>
 		);
 	}
 }
 
 const StyledText = styled.span`
-	text-align: left;
+	text-align: justify;
+	font-size: ${props => props.fontsize}px;
 	padding-top: ${props => props.pt}px;
 	padding-bottom: ${props => props.pb}px;
 	padding-left: ${props => props.pl}px;
@@ -46,4 +58,6 @@ const StyledText = styled.span`
 	margin-bottom: ${props => props.mb}px;
 	${(props) => props.fontWeight ? `font-weight: ${props.fontWeight};`: null};
 	display: ${props => props.display};
+	font-family: Arimo;
+	line-height: 1.5;
 `

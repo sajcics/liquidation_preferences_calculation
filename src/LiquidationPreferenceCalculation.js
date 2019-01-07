@@ -1,11 +1,11 @@
 export class LiquidationPreferenceCalculation {
 	founders = [];
-	investors = [];
+	investors = []; // stakeholders, usually investors who investing in company shares
 	allStakeholders = [];
 	moneyLeft = null;
 
 	constructor(data, companySold) {
-		const _data = data.map((e) => e);
+		const _data = JSON.parse(JSON.stringify(data)); //change reference on array
 
 		const founders = _data.filter(item => item.isFounders);
 		const investors = _data.filter(item => !item.isFounders).sort((a,b) => {
@@ -31,7 +31,7 @@ export class LiquidationPreferenceCalculation {
 		this.calculateNewOwnershipPercentage();
 		this.distributeToAllStakeholders();
 
-		console.log(this.allStakeholders);
+		return this.allStakeholders;
 	}
 
 	/* calculate how much money left to distribute to all stakeholders */
@@ -48,7 +48,6 @@ export class LiquidationPreferenceCalculation {
 				this.moneyLeft = 0;
 			}
 		}
-		console.log("money left", this.moneyLeft)
 	}
 
 	/* calculate if CAP is profitable than to convert to common shares*/
@@ -71,10 +70,12 @@ export class LiquidationPreferenceCalculation {
 					this.moneyLeft -= maxPaymentWithCAP - invested;
 					record.paidUp = true;
 					record.ownership = 0;
+					record.comments = "Is better to get full CAP than convert to Common shares";
 					this.calculateNewOwnershipPercentage(); // calculate new ownership of stakeholders
 				} else {
 					this.moneyLeft += invested;
 					record.invested = 0;
+					record.comments = "Is better to convert to Common shares to get more money than from full CAP";
 				}
 			}
 		}

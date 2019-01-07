@@ -15,8 +15,10 @@ export class BeautyHeader extends React.PureComponent {
 
 const StyledContaner = styled.div`
 	text-align: center;
-	font-size: 30px;
-	padding: 30px;
+	font-size: 50px;
+	padding: 50px;
 	background: #C14343;
 	color: #f5f5f5;
+	font-family: Pacifico;
+	vertical-align: center;
 `

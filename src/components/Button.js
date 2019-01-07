@@ -43,4 +43,10 @@ const StyledButton = styled.button`
 	margin-bottom: ${(props) => props.mb}px;
 	margin-left: ${(props) => props.ml}px;
 	margin-right: ${(props) => props.mr}px;
+	border: none;
+	
+	:active {
+		background: #C14343;
+		color: #f5f5f5
+	}
 `;
