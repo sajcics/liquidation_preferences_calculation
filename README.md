@@ -1,6 +1,28 @@
 ##Short description: 
-simple form to calculate liquidation preferences of stakeholders shares
+Calculate how much every investor gets paid in corporate liquidation situation, 
+for example company is sold. There are two type of shares Common and Preferred. 
+Common share usually owns founders, and preferred investors. The main difference 
+between this two shares is that Common share have voting rights but Preferred don't, 
+and stakeholders with Preferred shares are paid off before stakeholders with Common 
+shares. When is time to distribute money through stakeholders, it is important for 
+investors to get the more money than can get. In case when investor has Preferred 
+share but is more profitable to convert to Common or similar situations.
 
+![Application screen](public/screen.png?raw=true "Application screen")
+
+Results looks like picture below.
+![Example of calculation results](public/example_of_results.png?raw=true "example of results")
+
+
+How to start the project: 
+1. download the project
+2. install npm
+3. inside project: `npm install`
+4. after all packages are installed run `npm start` or `yarn start`
+
+There is some segments that have space to improvement, but lack of time unfortunately they are not 
+implemented. For example delete shareholders or similar.
+That's it. Enjoy until another update. :)
 
 
 
